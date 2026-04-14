@@ -6,24 +6,23 @@ const Navbar = () => {
     const { user, logout } = useAuth();
 
     return (
-        <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 shrink-0">
-            <div className="text-lg font-medium text-gray-800 hidden md:block">
-                Welcome back, {user?.name || 'User'}
+        <header className="h-16 border-b border-white/5 flex items-center justify-between px-6 shrink-0 bg-dark-950/80 backdrop-blur-xl">
+            <div className="text-sm font-medium text-dark-300 hidden md:block">
+                Welcome back, <span className="text-white">{user?.name || 'User'}</span>
             </div>
             {/* Mobile Title */}
-            <div className="text-lg font-bold text-primary-600 md:hidden">
-                MailGen AI
+            <div className="flex items-center gap-2 md:hidden">
+                <img src="/logo.png" alt="ColdMail AI" className="w-7 h-7 rounded-lg" />
+                <span className="text-sm font-bold gradient-text">ColdMail AI</span>
             </div>
 
-            <div className="flex items-center space-x-4">
-                <button
-                    onClick={logout}
-                    className="flex items-center text-gray-600 hover:text-red-500 transition-colors"
-                >
-                    <ArrowLeftOnRectangleIcon className="w-5 h-5 mr-1" />
-                    <span className="text-sm font-medium">Logout</span>
-                </button>
-            </div>
+            <button
+                onClick={logout}
+                className="flex items-center gap-2 text-dark-400 hover:text-red-400 transition-all px-3 py-2 rounded-lg hover:bg-white/5 text-sm"
+            >
+                <ArrowLeftOnRectangleIcon className="w-4 h-4" />
+                <span className="font-medium">Logout</span>
+            </button>
         </header>
     );
 };
